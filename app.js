@@ -69,8 +69,9 @@ app.use('/forsale', forSaleRoutes);
 
 */
 
-app.listen(3000, function() {
-	console.log('Agent free is listening...');
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
 });
 
 

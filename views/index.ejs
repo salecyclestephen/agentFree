@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<div class="container">
+	
+	<header class="jumbotron">
+		<!-- this container allows the spacing when down to mobile look just right-->
+		<div class="container">
+			<h3>Welcome to Agent Free!</h3>
+			<p>view all houses for sale......</p>
+			<p>
+				<a href="/forsale/new" class="btn btn-primary btn-lrg">Upload a new home...</a>
+			</p>
+		</div>
+	</header>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>Latest homes for sale!</h3>
+		</div>
+	</div>
+ 
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+
+		<% housesForSale.forEach((house) => { %>
+
+		<!-- row is split in 12 each to take up three then 6 -->
+		<div class="col-md-3 col-sm-6">
+			<div class="thumbnail">
+				<img src="<%= house.image %>">
+				<div class="caption">
+					<h4> <%= house.houseNumber %> <%= house.streetName %></h4>
+				</div>
+				<div class="caption">
+					<h5> <%= house.postCode %> </h5>
+				</div>
+				<div class="caption">
+					<h5> <%= house.askingPrice %> </h5>
+				</div>
+				<div class="caption">
+					<h5>Added: <%= house.dateAdded %> </h5>
+				</div>
+
+				<div class="caption">
+					<a href="/forsale/<%= house.id %>" class="btn btn-primary">More Info</a>
+				</div>
+			</div>
+		</div>
+		
+		<% }) %>
+
+	</div>
+
+	<%- include('partials/footer') %>
+
+</div>
+
